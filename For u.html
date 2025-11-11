@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>💖 Tricky Birthday Reveal 💖</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500;700&display=swap');
+
+  body {
+    margin: 0;
+    padding: 40px;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 600% 600%;
+    animation: gradientShift 15s ease infinite;
+    color: white;
+    overflow-y: auto;
+    height: 100vh;
+  }
+
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  h1 {
+    font-family: "Great Vibes", cursive;
+    font-size: 3rem;
+    color: #ffccff;
+    text-shadow: 0 0 20px #ff66cc, 0 0 40px #ff99cc;
+    animation: glow 2s ease-in-out infinite alternate;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 15px #ff66cc, 0 0 30px #ff99cc; }
+    to { text-shadow: 0 0 25px #ff33cc, 0 0 50px #ff66cc; }
+  }
+
+  #text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    display: none;
+  }
+
+  .rainbow {
+    background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+  }
+
+  #unlockBtn {
+    display: block;
+    margin: 30px auto;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    background: #ff66cc;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff99cc;
+    animation: glowBtn 2s infinite alternate;
+  }
+
+  @keyframes glowBtn {
+    from { box-shadow: 0 0 10px #ff66cc; }
+    to { box-shadow: 0 0 25px #ff33cc; }
+  }
+</style>
+</head>
+<body>
+
+<h1>🎉 Happy Birthday in Advance! 💞</h1>
+<button id="unlockBtn">🔓 Unlock Your Surprise 💌</button>
+<div id="text" class="rainbow"></div>
+
+<script>
+const fullMessage = `Seni çok seviyorum Aşkım Ruhum 💖
+Ap jo mili mujhe uski koi to wajah h 🌙
+Maane ya na maane, is dil me sirf apki jagah h 💫
+사랑해요 — Saranghaeyo 💗
+Sayang 💞
+
+I love you more than anything, my soul 💖`;
+
+const textBox = document.getElementById('text');
+const btn = document.getElementById('unlockBtn');
+
+btn.addEventListener('click', () => {
+  btn.style.display = 'none';
+  textBox.style.display = 'block';
+  typeEffect();
+});
+
+let i = 0;
+function typeEffect() {
+  if (i < fullMessage.length) {
+    textBox.innerHTML += fullMessage.charAt(i);
+    i++;
+    window.scrollTo(0, document.body.scrollHeight);
+    setTimeout(typeEffect, 40);
+  }
+}
+</script>
+
+</body>
+</html>
